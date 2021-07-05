@@ -1,0 +1,21 @@
+.feed {
+  flex: 1 1 60%;
+  margin: 0 2rem;
+}
+
+.feed__inputContainer {
+  background: white;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.feed__input {
+  border: 1px solid lightgray;
+  border-radius: 3rem;
+  display: flex;
+  padding: 1rem;
+  color: gray;
+  padding-left: 1.5rem;
+}
