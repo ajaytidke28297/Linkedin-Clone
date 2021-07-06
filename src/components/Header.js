@@ -9,8 +9,19 @@ import {
   Search,
   SupervisorAccount,
 } from "@material-ui/icons";
+import { useDispatch } from "react-redux";
+import { auth } from "../firebase";
+import { userActions } from "../features/userSlice";
 
 function Header() {
+  const dispatch = useDispatch();
+
+  const logoutOfApp = () => {
+    console.log("Logout Initiated");
+    dispatch(userActions.logout());
+    auth.signOut();
+  };
+
   return (
     <div className={classes.header}>
       <div className={classes.header__left}>
@@ -29,7 +40,11 @@ function Header() {
         <HeaderOption title="Jobs" Icon={BusinessCenter} />
         <HeaderOption title="Messaging" Icon={Chat} />
         <HeaderOption title="Notifications" Icon={Notifications} />
-        <HeaderOption avatar="/images/user.jpg" title="me" />
+        <HeaderOption
+          avatar="/images/user.jpg"
+          title="me"
+          onClick={logoutOfApp}
+        />
       </div>
     </div>
   );

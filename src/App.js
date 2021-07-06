@@ -27,7 +27,7 @@ function App() {
         dispatch(userActions.logout());
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={classes.app}>

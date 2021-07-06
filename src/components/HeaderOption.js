@@ -4,7 +4,7 @@ import { Avatar } from "@material-ui/core";
 
 function HeaderOption(props) {
   return (
-    <div className={classes.headerOption}>
+    <div onClick={props.onClick} className={classes.headerOption}>
       {props.Icon && <props.Icon className={classes.headerOption__icon} />}
       {props.avatar && (
         <Avatar className={classes.headerOption__icon} src={props.avatar} />

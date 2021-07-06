@@ -13,6 +13,20 @@ function Login() {
 
   const loginToApp = (e) => {
     e.preventDefault();
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userAuth) => {
+        dispatch(
+          userActions.login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: userAuth.user.displayName,
+            profileUrl: userAuth.user.photoURL,
+          })
+        );
+      })
+      .catch((err) => alert(err));
   };
 
   const register = () => {
@@ -23,21 +37,23 @@ function Login() {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((userAuth) => {
-        userAuth.user.updateProfile({
-          displayName: name,
-          photoURL: profilePic,
-        });
-      })
-      .then(() => {
-        dispatch(
-          userActions.login({
-            email: userAuth.user.email,
-            uid: userAuth.user.uid,
+        userAuth.user
+          .updateProfile({
             displayName: name,
             photoURL: profilePic,
           })
-        );
+          .then(() => {
+            dispatch(
+              userActions.login({
+                email: userAuth.user.email,
+                uid: userAuth.user.uid,
+                displayName: name,
+                photoURL: profilePic,
+              })
+            );
+          });
       })
+
       .catch((err) => alert(err));
   };
 
