@@ -20,7 +20,7 @@ function Header() {
         />
         <div className={classes.header__search}>
           <Search />
-          <input type="text" />
+          <input placeholder="Search" type="text" />
         </div>
       </div>
       <div className={classes.header__right}>
