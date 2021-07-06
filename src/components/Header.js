@@ -40,11 +40,7 @@ function Header() {
         <HeaderOption title="Jobs" Icon={BusinessCenter} />
         <HeaderOption title="Messaging" Icon={Chat} />
         <HeaderOption title="Notifications" Icon={Notifications} />
-        <HeaderOption
-          avatar="/images/user.jpg"
-          title="me"
-          onClick={logoutOfApp}
-        />
+        <HeaderOption avatar={true} title="me" onClick={logoutOfApp} />
       </div>
     </div>
   );
